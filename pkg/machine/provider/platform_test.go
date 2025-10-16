@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/containers/podman/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/pkg/machine/define"
 	"github.com/stretchr/testify/assert"
 )
 

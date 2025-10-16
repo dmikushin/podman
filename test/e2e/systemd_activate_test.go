@@ -14,8 +14,8 @@ import (
 	"syscall"
 	"time"
 
-	testUtils "github.com/containers/podman/v5/test/utils"
-	podmanUtils "github.com/containers/podman/v5/utils"
+	testUtils "github.com/dmikushin/podman-shared/test/utils"
+	podmanUtils "github.com/dmikushin/podman-shared/utils"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	. "github.com/onsi/gomega/gexec"

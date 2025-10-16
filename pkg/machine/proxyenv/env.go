@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/machine"
-	"github.com/containers/podman/v5/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/pkg/machine"
+	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libnetwork/etchosts"
 	"go.podman.io/common/pkg/config"

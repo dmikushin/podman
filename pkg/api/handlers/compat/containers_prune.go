@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/containers/podman/v5/libpod"
-	"github.com/containers/podman/v5/pkg/api/handlers"
-	"github.com/containers/podman/v5/pkg/api/handlers/utils"
-	api "github.com/containers/podman/v5/pkg/api/types"
-	"github.com/containers/podman/v5/pkg/domain/entities/reports"
-	"github.com/containers/podman/v5/pkg/domain/filters"
-	"github.com/containers/podman/v5/pkg/util"
+	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/pkg/api/handlers"
+	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/pkg/api/types"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities/reports"
+	"github.com/dmikushin/podman-shared/pkg/domain/filters"
+	"github.com/dmikushin/podman-shared/pkg/util"
 )
 
 func PruneContainers(w http.ResponseWriter, r *http.Request) {

@@ -4,12 +4,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/containers/podman/v5/cmd/podman/common"
-	"github.com/containers/podman/v5/cmd/podman/registry"
-	"github.com/containers/podman/v5/cmd/podman/utils"
-	"github.com/containers/podman/v5/cmd/podman/validate"
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/specgenutil"
+	"github.com/dmikushin/podman-shared/cmd/podman/common"
+	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/cmd/podman/utils"
+	"github.com/dmikushin/podman-shared/cmd/podman/validate"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/specgenutil"
 	"github.com/spf13/cobra"
 	"go.podman.io/common/pkg/completion"
 )

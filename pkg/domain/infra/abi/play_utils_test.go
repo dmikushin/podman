@@ -5,7 +5,7 @@ package abi
 import (
 	"testing"
 
-	"github.com/containers/podman/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/libpod/define"
 	"github.com/stretchr/testify/require"
 )
 

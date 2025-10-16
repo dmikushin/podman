@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/containers/podman/v5/pkg/machine/provider"
+	"github.com/dmikushin/podman-shared/pkg/machine/provider"
 )
 
 func getProvider() (string, error) {

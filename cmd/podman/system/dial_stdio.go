@@ -8,9 +8,9 @@ import (
 
 	"errors"
 
-	"github.com/containers/podman/v5/cmd/podman/registry"
-	"github.com/containers/podman/v5/cmd/podman/validate"
-	"github.com/containers/podman/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/cmd/podman/validate"
+	"github.com/dmikushin/podman-shared/pkg/bindings"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

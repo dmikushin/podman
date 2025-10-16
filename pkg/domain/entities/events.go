@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"time"
 
-	libpodEvents "github.com/containers/podman/v5/libpod/events"
-	types "github.com/containers/podman/v5/pkg/domain/entities/types"
+	libpodEvents "github.com/dmikushin/podman-shared/libpod/events"
+	types "github.com/dmikushin/podman-shared/pkg/domain/entities/types"
 	dockerEvents "github.com/docker/docker/api/types/events"
 )
 

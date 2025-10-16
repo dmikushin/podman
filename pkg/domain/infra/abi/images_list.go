@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
 	"go.podman.io/common/libimage"
 )
 

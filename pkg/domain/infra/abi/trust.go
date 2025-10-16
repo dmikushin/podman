@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/trust"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/trust"
 )
 
 func (ir *ImageEngine) ShowTrust(_ context.Context, _ []string, options entities.ShowTrustOptions) (*entities.ShowTrustReport, error) {

@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/blang/semver/v4"
-	"github.com/containers/podman/v5/version"
+	"github.com/dmikushin/podman-shared/version"
 	"github.com/gorilla/mux"
 )
 

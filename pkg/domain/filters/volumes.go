@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/containers/podman/v5/libpod"
-	"github.com/containers/podman/v5/pkg/util"
+	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/pkg/util"
 	"go.podman.io/common/pkg/filters"
 )
 

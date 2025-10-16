@@ -9,14 +9,14 @@ import (
 	"os"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/machine/env"
-	"github.com/containers/podman/v5/pkg/machine/wsl/wutil"
+	"github.com/dmikushin/podman-shared/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/pkg/machine/wsl/wutil"
 
 	gvproxy "github.com/containers/gvisor-tap-vsock/pkg/types"
-	"github.com/containers/podman/v5/pkg/machine"
-	"github.com/containers/podman/v5/pkg/machine/define"
-	"github.com/containers/podman/v5/pkg/machine/ignition"
-	"github.com/containers/podman/v5/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/pkg/machine"
+	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/pkg/machine/ignition"
+	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
 	"github.com/sirupsen/logrus"
 )
 

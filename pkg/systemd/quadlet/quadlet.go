@@ -9,14 +9,14 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/specgenutilexternal"
-	"github.com/containers/podman/v5/pkg/systemd/parser"
+	"github.com/dmikushin/podman-shared/pkg/specgenutilexternal"
+	"github.com/dmikushin/podman-shared/pkg/systemd/parser"
 	"go.podman.io/storage/pkg/regexp"
 )
 
 const (
 	// Fixme should use
-	// github.com/containers/podman/v5/libpod/define.AutoUpdateLabel
+	// github.com/dmikushin/podman-shared/libpod/define.AutoUpdateLabel
 	// but it is causing bloat
 	autoUpdateLabel = "io.containers.autoupdate"
 	// Directory for temporary Quadlet files (sysadmin owned)

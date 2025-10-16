@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/containers/buildah/pkg/parse"
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/emulation"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/emulation"
 	lplatform "go.podman.io/common/libimage/platform"
 )
 

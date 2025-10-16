@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/containers/podman/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/libpod/define"
 )
 
 func TestValidateAnnotations(t *testing.T) {

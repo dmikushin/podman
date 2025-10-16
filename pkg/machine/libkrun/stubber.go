@@ -7,13 +7,13 @@ import (
 	"strconv"
 
 	gvproxy "github.com/containers/gvisor-tap-vsock/pkg/types"
-	"github.com/containers/podman/v5/pkg/machine"
-	"github.com/containers/podman/v5/pkg/machine/apple"
-	"github.com/containers/podman/v5/pkg/machine/apple/vfkit"
-	"github.com/containers/podman/v5/pkg/machine/define"
-	"github.com/containers/podman/v5/pkg/machine/ignition"
-	"github.com/containers/podman/v5/pkg/machine/vmconfigs"
-	"github.com/containers/podman/v5/utils"
+	"github.com/dmikushin/podman-shared/pkg/machine"
+	"github.com/dmikushin/podman-shared/pkg/machine/apple"
+	"github.com/dmikushin/podman-shared/pkg/machine/apple/vfkit"
+	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/pkg/machine/ignition"
+	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/utils"
 	vfConfig "github.com/crc-org/vfkit/pkg/config"
 )
 

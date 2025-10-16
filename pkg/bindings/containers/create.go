@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/bindings"
-	"github.com/containers/podman/v5/pkg/domain/entities/types"
-	"github.com/containers/podman/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
 	jsoniter "github.com/json-iterator/go"
 )
 

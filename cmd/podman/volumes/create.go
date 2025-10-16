@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/containers/podman/v5/cmd/podman/parse"
-	"github.com/containers/podman/v5/cmd/podman/registry"
-	"github.com/containers/podman/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/cmd/podman/parse"
+	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
 	"github.com/spf13/cobra"
 	"go.podman.io/common/pkg/completion"
 )

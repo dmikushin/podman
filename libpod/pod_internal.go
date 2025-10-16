@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/containers/podman/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/libpod/define"
 	"go.podman.io/storage/pkg/stringid"
 )
 

@@ -5,7 +5,7 @@ package abi
 import (
 	"context"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
 )
 
 func (ic *ContainerEngine) ContainerStat(ctx context.Context, nameOrID string, containerPath string) (*entities.ContainerStatReport, error) {

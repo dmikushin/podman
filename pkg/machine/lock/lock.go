@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/containers/podman/v5/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/pkg/machine/env"
 	"go.podman.io/storage/pkg/lockfile"
 )
 

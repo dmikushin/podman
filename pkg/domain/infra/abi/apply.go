@@ -14,8 +14,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	k8sAPI "github.com/containers/podman/v5/pkg/k8s.io/api/core/v1"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	k8sAPI "github.com/dmikushin/podman-shared/pkg/k8s.io/api/core/v1"
 	"sigs.k8s.io/yaml"
 )
 

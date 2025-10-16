@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/containers/podman/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/libpod/define"
 )
 
 // GetPodPidInformation returns process-related data of all processes in

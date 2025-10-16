@@ -3,9 +3,9 @@ package connection
 import (
 	"fmt"
 
-	"github.com/containers/podman/v5/cmd/podman/common"
-	"github.com/containers/podman/v5/cmd/podman/registry"
-	"github.com/containers/podman/v5/cmd/podman/system"
+	"github.com/dmikushin/podman-shared/cmd/podman/common"
+	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/cmd/podman/system"
 	"github.com/spf13/cobra"
 	"go.podman.io/common/pkg/config"
 )

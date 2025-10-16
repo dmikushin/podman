@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/containers/podman/v5/version"
+	"github.com/dmikushin/podman-shared/version"
 )
 
 // Overwritten at build time

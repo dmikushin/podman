@@ -3,7 +3,7 @@ package specgenutil
 import (
 	"errors"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
 	"go.podman.io/common/pkg/config"
 )
 

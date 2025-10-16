@@ -5,8 +5,8 @@ package compat
 import (
 	"time"
 
-	"github.com/containers/podman/v5/libpod"
-	"github.com/containers/podman/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/libpod/define"
 	"github.com/docker/docker/api/types/container"
 )
 

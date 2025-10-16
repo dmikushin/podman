@@ -1,8 +1,8 @@
 package types
 
 import (
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )
 

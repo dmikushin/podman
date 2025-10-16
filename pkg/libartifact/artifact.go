@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/libartifact/types"
+	"github.com/dmikushin/podman-shared/pkg/libartifact/types"
 	"github.com/opencontainers/go-digest"
 	"go.podman.io/image/v5/manifest"
 )

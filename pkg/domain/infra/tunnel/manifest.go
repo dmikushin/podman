@@ -6,10 +6,10 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/bindings/images"
-	"github.com/containers/podman/v5/pkg/bindings/manifests"
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	envLib "github.com/containers/podman/v5/pkg/env"
+	"github.com/dmikushin/podman-shared/pkg/bindings/images"
+	"github.com/dmikushin/podman-shared/pkg/bindings/manifests"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	envLib "github.com/dmikushin/podman-shared/pkg/env"
 	"go.podman.io/common/libimage/define"
 	"go.podman.io/image/v5/types"
 )

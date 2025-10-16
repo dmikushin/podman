@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/containers/podman/v5/pkg/bindings"
-	"github.com/containers/podman/v5/pkg/domain/entities/reports"
-	entitiesTypes "github.com/containers/podman/v5/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities/reports"
+	entitiesTypes "github.com/dmikushin/podman-shared/pkg/domain/entities/types"
 	jsoniter "github.com/json-iterator/go"
 )
 

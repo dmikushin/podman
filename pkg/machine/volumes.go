@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 
-	"github.com/containers/podman/v5/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
 )
 
 // NFSSELinuxContext is what is used by NFS mounts, which is allowed

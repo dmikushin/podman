@@ -6,7 +6,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
 )
 
 func (ic *ContainerEngine) ContainerCopyFromArchive(ctx context.Context, nameOrID, containerPath string, reader io.Reader, options entities.CopyOptions) (entities.ContainerCopyFunc, error) {

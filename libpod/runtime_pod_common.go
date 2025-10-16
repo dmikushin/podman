@@ -7,9 +7,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/libpod/events"
-	"github.com/containers/podman/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/libpod/events"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
 	"github.com/hashicorp/go-multierror"
 	"github.com/sirupsen/logrus"
 )

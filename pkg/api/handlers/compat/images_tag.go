@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/containers/podman/v5/libpod"
-	"github.com/containers/podman/v5/pkg/api/handlers/utils"
-	api "github.com/containers/podman/v5/pkg/api/types"
+	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/pkg/api/types"
 	"go.podman.io/common/libimage"
 )
 

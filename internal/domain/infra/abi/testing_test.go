@@ -2,6 +2,6 @@
 
 package abi
 
-import "github.com/containers/podman/v5/internal/domain/entities"
+import "github.com/dmikushin/podman-shared/internal/domain/entities"
 
 var _ entities.TestingEngine = &TestingEngine{}

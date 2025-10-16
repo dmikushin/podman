@@ -11,11 +11,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/containers/podman/v5/libpod"
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/specgen"
-	"github.com/containers/podman/v5/pkg/specgenutil"
+	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/pkg/specgenutil"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 )

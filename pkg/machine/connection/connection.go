@@ -8,7 +8,7 @@ import (
 	"net"
 	"net/url"
 
-	"github.com/containers/podman/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/pkg/machine/define"
 	"go.podman.io/common/pkg/config"
 )
 

@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/containers/podman/v5/pkg/seccomp"
-	"github.com/containers/podman/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/pkg/seccomp"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
 	spec "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libimage"

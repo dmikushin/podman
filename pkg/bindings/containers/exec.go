@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/pkg/api/handlers"
-	"github.com/containers/podman/v5/pkg/bindings"
-	"github.com/containers/podman/v5/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/pkg/api/handlers"
+	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/sirupsen/logrus"
 )

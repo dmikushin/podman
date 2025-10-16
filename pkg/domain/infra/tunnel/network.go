@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/pkg/bindings/network"
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/pkg/bindings/network"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/errorhandling"
 	"go.podman.io/common/libnetwork/types"
 )
 

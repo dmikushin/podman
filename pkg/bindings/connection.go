@@ -18,8 +18,8 @@ import (
 	"time"
 
 	"github.com/blang/semver/v4"
-	"github.com/containers/podman/v5/pkg/util/tlsutil"
-	"github.com/containers/podman/v5/version"
+	"github.com/dmikushin/podman-shared/pkg/util/tlsutil"
+	"github.com/dmikushin/podman-shared/version"
 	"github.com/kevinburke/ssh_config"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/ssh"

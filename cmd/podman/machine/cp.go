@@ -9,14 +9,14 @@ import (
 	"os/exec"
 	"strconv"
 
-	"github.com/containers/podman/v5/cmd/podman/registry"
-	"github.com/containers/podman/v5/libpod/events"
-	"github.com/containers/podman/v5/pkg/copy"
-	"github.com/containers/podman/v5/pkg/machine"
-	"github.com/containers/podman/v5/pkg/machine/define"
-	"github.com/containers/podman/v5/pkg/machine/env"
-	"github.com/containers/podman/v5/pkg/machine/vmconfigs"
-	"github.com/containers/podman/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/libpod/events"
+	"github.com/dmikushin/podman-shared/pkg/copy"
+	"github.com/dmikushin/podman-shared/pkg/machine"
+	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
 	"github.com/spf13/cobra"
 )
 

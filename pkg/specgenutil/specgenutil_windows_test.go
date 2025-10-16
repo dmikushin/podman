@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/specgen"
 	"github.com/stretchr/testify/assert"
 )
 

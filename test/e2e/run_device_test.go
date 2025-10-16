@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	. "github.com/containers/podman/v5/test/utils"
+	. "github.com/dmikushin/podman-shared/test/utils"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

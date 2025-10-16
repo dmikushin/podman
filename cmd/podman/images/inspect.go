@@ -1,11 +1,11 @@
 package images
 
 import (
-	"github.com/containers/podman/v5/cmd/podman/common"
-	"github.com/containers/podman/v5/cmd/podman/inspect"
-	"github.com/containers/podman/v5/cmd/podman/registry"
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	inspectTypes "github.com/containers/podman/v5/pkg/inspect"
+	"github.com/dmikushin/podman-shared/cmd/podman/common"
+	"github.com/dmikushin/podman-shared/cmd/podman/inspect"
+	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	inspectTypes "github.com/dmikushin/podman-shared/pkg/inspect"
 	"github.com/spf13/cobra"
 )
 

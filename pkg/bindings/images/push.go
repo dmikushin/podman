@@ -10,9 +10,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/containers/podman/v5/pkg/auth"
-	"github.com/containers/podman/v5/pkg/bindings"
-	"github.com/containers/podman/v5/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/pkg/auth"
+	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
 	imageTypes "go.podman.io/image/v5/types"
 )
 

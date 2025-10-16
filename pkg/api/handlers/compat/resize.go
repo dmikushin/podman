@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/containers/podman/v5/libpod"
-	"github.com/containers/podman/v5/libpod/define"
-	"github.com/containers/podman/v5/pkg/api/handlers/utils"
-	api "github.com/containers/podman/v5/pkg/api/types"
+	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/pkg/api/types"
 	"github.com/gorilla/mux"
 	"go.podman.io/common/pkg/resize"
 )

@@ -10,8 +10,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/containers/podman/v5/pkg/domain/entities"
-	"github.com/containers/podman/v5/pkg/libartifact/types"
+	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/pkg/libartifact/types"
 	"github.com/opencontainers/go-digest"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libimage"

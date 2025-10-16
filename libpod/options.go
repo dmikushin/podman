@@ -2286,3 +2286,19 @@ func WithLabelNested(nested bool) CtrCreateOption {
 		return nil
 	}
 }
+
+// WithSharedBaseLayers enables shared base layers mode for the container.
+// When enabled, the container will use base layers directly from shared storage
+// (e.g., NFS) instead of copying them locally, creating only local upperdir/workdir
+// for writable content using OverlayFS.
+func WithSharedBaseLayers(enabled bool) CtrCreateOption {
+	return func(ctr *Container) error {
+		if ctr.valid {
+			return define.ErrCtrFinalized
+		}
+
+		ctr.config.SharedBaseLayers = enabled
+
+		return nil
+	}
+}

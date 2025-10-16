@@ -711,6 +711,10 @@ func createContainerOptions(rt *libpod.Runtime, s *specgen.SpecGenerator, pod *l
 
 	options = append(options, libpod.WithSelectedPasswordManagement(s.Passwd))
 
+	if s.SharedBaseLayers != nil && *s.SharedBaseLayers {
+		options = append(options, libpod.WithSharedBaseLayers(true))
+	}
+
 	return options, nil
 }
 

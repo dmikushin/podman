@@ -837,6 +837,9 @@ func FillOutSpecGen(s *specgen.SpecGenerator, c *entities.ContainerCreateOptions
 	if len(s.InitPath) == 0 || len(c.InitPath) != 0 {
 		s.InitPath = c.InitPath
 	}
+	if s.SharedBaseLayers == nil {
+		s.SharedBaseLayers = &c.SharedBaseLayers
+	}
 	if s.Stdin == nil {
 		s.Stdin = &c.Interactive
 	}

@@ -183,6 +183,9 @@ type ContainerRootFSConfig struct {
 	// treated as root directories. Standard bind mounts will be mounted
 	// into paths relative to these directories.
 	ChrootDirs []string `json:"chroot_directories,omitempty"`
+	// SharedBaseLayers indicates whether this container uses shared base layers
+	// from network storage instead of local copies.
+	SharedBaseLayers bool `json:"shared_base_layers,omitempty"`
 }
 
 // ContainerSecurityConfig is an embedded sub-config providing security configuration

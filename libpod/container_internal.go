@@ -1806,17 +1806,42 @@ func (c *Container) mountStorage() (_ string, deferredErr error) {
 	}
 
 	if mountPoint == "" {
-		mountPoint, err = c.mount()
-		if err != nil {
-			return "", err
-		}
-		defer func() {
-			if deferredErr != nil {
-				if err := c.unmount(false); err != nil {
-					logrus.Errorf("Unmounting container %s after mount error: %v", c.ID(), err)
+		// Check if shared base layers mode is enabled and conditions are met
+		if c.config.SharedBaseLayers {
+			isSharedStorage, err := c.isImageStorageOnSharedStorage()
+			if err != nil {
+				logrus.Warnf("Failed to check shared storage, falling back to normal mount: %v", err)
+			} else if isSharedStorage {
+				logrus.Debugf("Using shared base layers for container %s", c.ID())
+				mountPoint, err = c.mountSharedBaseLayers()
+				if err != nil {
+					logrus.Warnf("Failed to mount shared base layers, falling back to normal mount: %v", err)
+				} else {
+					defer func() {
+						if deferredErr != nil {
+							if err := c.unmountSharedBaseLayers(mountPoint); err != nil {
+								logrus.Errorf("Unmounting shared base layers for container %s after mount error: %v", c.ID(), err)
+							}
+						}
+					}()
 				}
 			}
-		}()
+		}
+
+		// If shared base layers didn't work or wasn't enabled, use normal mount
+		if mountPoint == "" {
+			mountPoint, err = c.mount()
+			if err != nil {
+				return "", err
+			}
+			defer func() {
+				if deferredErr != nil {
+					if err := c.unmount(false); err != nil {
+						logrus.Errorf("Unmounting container %s after mount error: %v", c.ID(), err)
+					}
+				}
+			}()
+		}
 	}
 
 	rootUID, rootGID := c.RootUID(), c.RootGID()
@@ -2066,6 +2091,13 @@ func (c *Container) cleanupStorage() error {
 	if err := c.cleanupOverlayMounts(); err != nil {
 		// If the container can't remove content report the error
 		reportErrorf("failed to clean up overlay mounts for %s: %w", c.ID(), err)
+	}
+
+	// Cleanup shared base layers if they were used
+	if c.config.SharedBaseLayers && c.state.Mountpoint != "" {
+		if err := c.unmountSharedBaseLayers(c.state.Mountpoint); err != nil {
+			reportErrorf("failed to unmount shared base layers for %s: %w", c.ID(), err)
+		}
 	}
 
 	if c.config.Rootfs != "" {

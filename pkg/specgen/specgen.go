@@ -358,6 +358,10 @@ type ContainerStorageConfig struct {
 	// into paths relative to these directories.
 	// Optional.
 	ChrootDirs []string `json:"chroot_directories,omitempty"`
+	// SharedBaseLayers instructs Podman to skip copying base layers for this
+	// container launch, using them directly from shared storage (like NFS).
+	// Optional.
+	SharedBaseLayers *bool `json:"shared_base_layers,omitempty"`
 }
 
 // ContainerSecurityConfig is a container's security features, including

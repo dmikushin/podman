@@ -27,12 +27,139 @@ import (
 	"go.podman.io/common/libnetwork/types"
 	"go.podman.io/common/pkg/cgroups"
 	"go.podman.io/common/pkg/config"
+	graphdriver "go.podman.io/storage/drivers"
+	"go.podman.io/storage/pkg/idtools"
 	"golang.org/x/sys/unix"
 )
 
 var (
 	bindOptions = []string{define.TypeBind, "rprivate"}
 )
+
+// isPathOnNFS checks if the given path is on an NFS mount
+func isPathOnNFS(path string) (bool, error) {
+	// Get the mount info for the path
+	var stat syscall.Statfs_t
+	if err := syscall.Statfs(path, &stat); err != nil {
+		return false, fmt.Errorf("failed to get filesystem info for %s: %w", path, err)
+	}
+
+	// NFS magic number is 0x6969
+	const nfsMagic = 0x6969
+	return stat.Type == nfsMagic, nil
+}
+
+// isImageStorageOnSharedStorage checks if container image storage is on NFS or other shared storage
+func (c *Container) isImageStorageOnSharedStorage() (bool, error) {
+	if c.runtime.store == nil {
+		return false, nil
+	}
+
+	// Get the image store's root directory from runtime config
+	graphRoot := c.runtime.storageConfig.GraphRoot
+	if graphRoot == "" {
+		return false, nil
+	}
+
+	// Check if the storage root is on NFS
+	isNFS, err := isPathOnNFS(graphRoot)
+	if err != nil {
+		logrus.Debugf("Failed to check if image storage is on NFS: %v", err)
+		return false, nil // Don't fail container creation for this
+	}
+
+	logrus.Debugf("Image storage at %s is on NFS: %v", graphRoot, isNFS)
+	return isNFS, nil
+}
+
+// mountSharedBaseLayers creates a container mount using shared base layers from NFS
+// and local upperdir/workdir for writable content
+func (c *Container) mountSharedBaseLayers() (string, error) {
+	if c.runtime.store == nil {
+		return "", fmt.Errorf("container store is not available")
+	}
+
+	// Get container image information
+	imageID := c.config.RootfsImageID
+	if imageID == "" {
+		return "", fmt.Errorf("container has no image ID for shared base layers")
+	}
+
+	// Get the shared storage location for the image layers
+	img, err := c.runtime.store.Image(imageID)
+	if err != nil {
+		return "", fmt.Errorf("failed to get image info: %w", err)
+	}
+
+	// Get the storage driver's layer location
+	driver, err := c.runtime.store.GraphDriver()
+	if err != nil {
+		return "", fmt.Errorf("failed to get graph driver: %w", err)
+	}
+	sharedLayerPath, err := driver.Get(img.TopLayer, graphdriver.MountOpts{})
+	if err != nil {
+		return "", fmt.Errorf("failed to get image layer path: %w", err)
+	}
+
+	logrus.Debugf("Using shared base layers from: %s", sharedLayerPath)
+
+	// Create a work directory for this container's writable layer
+	containerWorkDir := filepath.Join(c.runtime.config.Engine.TmpDir, "shared-layers", c.ID())
+	upperDir := filepath.Join(containerWorkDir, "upper")
+	workDir := filepath.Join(containerWorkDir, "work")
+	mountPoint := filepath.Join(containerWorkDir, "merged")
+
+	// Ensure directories exist
+	for _, dir := range []string{upperDir, workDir, mountPoint} {
+		if err := os.MkdirAll(dir, 0755); err != nil {
+			return "", fmt.Errorf("failed to create directory %s: %w", dir, err)
+		}
+		if err := idtools.SafeChown(dir, c.RootUID(), c.RootGID()); err != nil {
+			return "", fmt.Errorf("failed to chown %s: %w", dir, err)
+		}
+	}
+
+	// Create overlay mount options
+	overlayOpts := fmt.Sprintf("lowerdir=%s,upperdir=%s,workdir=%s",
+		sharedLayerPath, upperDir, workDir)
+
+	// Add SELinux label if configured
+	if c.config.MountLabel != "" {
+		overlayOpts = label.FormatMountLabel(overlayOpts, c.config.MountLabel)
+	}
+
+	logrus.Debugf("Mounting overlay with options: %s", overlayOpts)
+
+	// Mount the overlay filesystem
+	if err := unix.Mount("overlay", mountPoint, "overlay", 0, overlayOpts); err != nil {
+		return "", fmt.Errorf("failed to mount overlay for shared base layers: %w", err)
+	}
+
+	logrus.Infof("Successfully mounted shared base layers for container %s at %s", c.ID(), mountPoint)
+	return mountPoint, nil
+}
+
+// unmountSharedBaseLayers unmounts the shared base layers overlay and cleans up directories
+func (c *Container) unmountSharedBaseLayers(mountPoint string) error {
+	logrus.Debugf("Unmounting shared base layers for container %s at %s", c.ID(), mountPoint)
+
+	// Unmount the overlay
+	if err := unix.Unmount(mountPoint, 0); err != nil {
+		if err != syscall.EINVAL && err != syscall.ENOENT {
+			return fmt.Errorf("unmounting shared base layers overlay %s: %w", mountPoint, err)
+		}
+		// If it's just an EINVAL or ENOENT, debug logs only
+		logrus.Debugf("Container %s failed to unmount shared base layers %s: %v", c.ID(), mountPoint, err)
+	}
+
+	// Clean up the container work directories
+	containerWorkDir := filepath.Join(c.runtime.config.Engine.TmpDir, "shared-layers", c.ID())
+	if err := os.RemoveAll(containerWorkDir); err != nil {
+		logrus.Warnf("Failed to clean up shared base layers work directory %s: %v", containerWorkDir, err)
+	}
+
+	return nil
+}
 
 func (c *Container) mountSHM(shmOptions string) error {
 	contextType := "context"

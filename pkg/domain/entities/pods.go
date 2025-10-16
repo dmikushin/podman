@@ -274,6 +274,10 @@ type ContainerCreateOptions struct {
 
 	GroupEntry  string
 	PasswdEntry string
+
+	// SharedBaseLayers instructs Podman to skip copying base layers for this container
+	// launch, using them directly from shared storage (like NFS)
+	SharedBaseLayers bool
 }
 
 func NewInfraContainerCreateOptions() ContainerCreateOptions {

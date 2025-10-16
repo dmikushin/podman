@@ -552,6 +552,12 @@ func DefineCreateFlags(cmd *cobra.Command, cf *entities.ContainerCreateOptions, 
 			"replace", false,
 			`If a container with the same name exists, replace it`,
 		)
+
+		createFlags.BoolVar(
+			&cf.SharedBaseLayers,
+			"shared-base-layers", false,
+			"Skip copying base layers and use them directly from shared storage",
+		)
 	}
 	if mode == entities.CreateMode || mode == entities.UpdateMode {
 		createFlags.BoolVar(

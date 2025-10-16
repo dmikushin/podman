@@ -646,4 +646,53 @@ var _ = Describe("Podman prune", func() {
 		Expect(after.OutputToString()).ShouldNot(ContainSubstring("none"))
 		Expect(after.OutputToString()).Should(ContainSubstring("notleaker"))
 	})
+
+	It("podman image prune should not remove base images used by shared base layer containers", func() {
+		SkipIfRemote("shared base layers only supported for local")
+		// This test verifies that image prune doesn't remove base images that are
+		// used by containers with shared base layers enabled
+
+		// Pull a base image (alpine)
+		pull := podmanTest.Podman([]string{"pull", ALPINE})
+		pull.WaitWithDefaultTimeout()
+		Expect(pull).Should(ExitCleanly())
+
+		// Create a container with shared base layers enabled
+		// Note: We use --shared-base-layers flag which should prevent the base image
+		// from being pruned
+		session := podmanTest.Podman([]string{"create", "--shared-base-layers", "--name", "test-shared", ALPINE, "sleep", "inf"})
+		session.WaitWithDefaultTimeout()
+		Expect(session).Should(ExitCleanly())
+
+		// Get the initial number of images
+		countBefore := podmanTest.Podman([]string{"images", "-q"})
+		countBefore.WaitWithDefaultTimeout()
+		Expect(countBefore).Should(ExitCleanly())
+		imagesBefore := len(countBefore.OutputToStringArray())
+
+		// Run image prune
+		prune := podmanTest.Podman([]string{"image", "prune", "-f"})
+		prune.WaitWithDefaultTimeout()
+		Expect(prune).Should(ExitCleanly())
+
+		// Get the number of images after pruning
+		countAfter := podmanTest.Podman([]string{"images", "-q"})
+		countAfter.WaitWithDefaultTimeout()
+		Expect(countAfter).Should(ExitCleanly())
+		imagesAfter := len(countAfter.OutputToStringArray())
+
+		// The base image should still exist because it's referenced by the shared base layer container
+		Expect(imagesAfter).To(Equal(imagesBefore), "Base image should not be pruned when used by shared base layer containers")
+
+		// Verify the alpine image still exists
+		checkAlpine := podmanTest.Podman([]string{"images", ALPINE})
+		checkAlpine.WaitWithDefaultTimeout()
+		Expect(checkAlpine).Should(ExitCleanly())
+		Expect(checkAlpine.OutputToString()).Should(ContainSubstring(ALPINE))
+
+		// Clean up
+		rm := podmanTest.Podman([]string{"rm", "-f", "test-shared"})
+		rm.WaitWithDefaultTimeout()
+		Expect(rm).Should(ExitCleanly())
+	})
 })

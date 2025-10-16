@@ -33,7 +33,13 @@ func (r *Runtime) RemoveContainersForImageCallback(ctx context.Context, force bo
 			return err
 		}
 		for _, ctr := range ctrs {
-			if ctr.config.RootfsImageID != imageID {
+			// Check if this container uses the image as its root filesystem
+			if ctr.config.RootfsImageID == imageID {
+				// Container uses this image as its main image - process it
+			} else if ctr.config.SharedBaseLayers && ctr.config.SharedBaseImageID == imageID {
+				// Container uses this image as its shared base layer - also process it
+			} else {
+				// Container doesn't use this image at all - skip it
 				continue
 			}
 			var timeout *uint

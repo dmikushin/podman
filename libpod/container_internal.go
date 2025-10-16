@@ -2094,9 +2094,30 @@ func (c *Container) cleanupStorage() error {
 	}
 
 	// Cleanup shared base layers if they were used
-	if c.config.SharedBaseLayers && c.state.Mountpoint != "" {
-		if err := c.unmountSharedBaseLayers(c.state.Mountpoint); err != nil {
-			reportErrorf("failed to unmount shared base layers for %s: %w", c.ID(), err)
+	// This must be done before the regular unmount to prevent conflicts
+	if c.config.SharedBaseLayers {
+		// Use the stored mountpoint even if state.Mountpoint is already cleared
+		mountpointToClean := c.state.Mountpoint
+		if mountpointToClean == "" {
+			// Try to construct the expected mountpoint if state was already cleared
+			if c.runtime.config.Engine.TmpDir != "" {
+				expectedMountpoint := filepath.Join(c.runtime.config.Engine.TmpDir, "shared-layers", c.ID(), "merged")
+				if _, err := os.Stat(expectedMountpoint); err == nil {
+					mountpointToClean = expectedMountpoint
+					logrus.Debugf("Using reconstructed mountpoint %s for shared base layers cleanup", expectedMountpoint)
+				}
+			}
+		}
+
+		if mountpointToClean != "" {
+			logrus.Debugf("Cleaning up shared base layers for container %s with mountpoint %s", c.ID(), mountpointToClean)
+			if err := c.unmountSharedBaseLayers(mountpointToClean); err != nil {
+				// For shared base layers, cleanup failures are critical as they can cause resource leaks
+				reportErrorf("failed to unmount shared base layers for %s: %w", c.ID(), err)
+			}
+		} else {
+			// Log but don't error if we can't determine the mountpoint
+			logrus.Debugf("No mountpoint found for shared base layers cleanup of container %s", c.ID())
 		}
 	}
 
@@ -2300,6 +2321,29 @@ func (c *Container) cleanup(ctx context.Context) error {
 			lastError = err
 		} else {
 			logrus.Errorf("Pruning container exit codes: %v", err)
+		}
+	}
+
+	// Emergency cleanup for shared base layers that may have been missed
+	// This is a safety net to prevent resource leaks if the main cleanup failed
+	if c.config.SharedBaseLayers {
+		// Check for any lingering shared base layer mount points
+		if c.runtime.config.Engine.TmpDir != "" {
+			containerWorkDir := filepath.Join(c.runtime.config.Engine.TmpDir, "shared-layers", c.ID())
+			mergeMountPoint := filepath.Join(containerWorkDir, "merged")
+
+			// Check if mount point still exists and is mounted
+			if mounted, err := isMounted(mergeMountPoint); err == nil && mounted {
+				logrus.Warnf("Emergency cleanup: Found active shared base layer mount %s for container %s", mergeMountPoint, c.ID())
+				if err := c.unmountSharedBaseLayers(mergeMountPoint); err != nil {
+					logrus.Errorf("Emergency cleanup failed for shared base layers of container %s: %v", c.ID(), err)
+					if lastError == nil {
+						lastError = fmt.Errorf("emergency cleanup of shared base layers failed: %w", err)
+					}
+				} else {
+					logrus.Infof("Emergency cleanup successfully unmounted shared base layers for container %s", c.ID())
+				}
+			}
 		}
 	}
 

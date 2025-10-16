@@ -2302,3 +2302,18 @@ func WithSharedBaseLayers(enabled bool) CtrCreateOption {
 		return nil
 	}
 }
+
+// WithSharedBaseImageID sets the base image ID for shared base layers.
+// This is used to track which base image this container depends on for
+// garbage collection purposes.
+func WithSharedBaseImageID(imageID string) CtrCreateOption {
+	return func(ctr *Container) error {
+		if ctr.valid {
+			return define.ErrCtrFinalized
+		}
+
+		ctr.config.SharedBaseImageID = imageID
+
+		return nil
+	}
+}

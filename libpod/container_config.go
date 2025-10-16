@@ -186,6 +186,10 @@ type ContainerRootFSConfig struct {
 	// SharedBaseLayers indicates whether this container uses shared base layers
 	// from network storage instead of local copies.
 	SharedBaseLayers bool `json:"shared_base_layers,omitempty"`
+	// SharedBaseImageID is the ID of the base image used for shared base layers.
+	// This is used to track which base image this container depends on for
+	// garbage collection purposes. Only set when SharedBaseLayers is true.
+	SharedBaseImageID string `json:"shared_base_image_id,omitempty"`
 }
 
 // ContainerSecurityConfig is an embedded sub-config providing security configuration

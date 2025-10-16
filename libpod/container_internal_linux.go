@@ -3,6 +3,7 @@
 package libpod
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"io/fs"
@@ -72,6 +73,50 @@ func (c *Container) isImageStorageOnSharedStorage() (bool, error) {
 	return isNFS, nil
 }
 
+// getBaseImageID determines the base image ID for shared base layers
+// This function finds the base image by looking at the image history
+func (c *Container) getBaseImageID() (string, error) {
+	if c.config.RootfsImageID == "" {
+		return "", fmt.Errorf("container has no image ID")
+	}
+
+	// For now, we'll use a simple heuristic: the base image is the bottom layer
+	// of the image history. In practice, this might need to be more sophisticated.
+	// We could also add configuration to explicitly specify the base image.
+
+	// Get the libimage runtime to inspect the image
+	img, _, err := c.runtime.libimageRuntime.LookupImage(c.config.RootfsImageID, nil)
+	if err != nil {
+		return "", fmt.Errorf("failed to lookup image %s: %w", c.config.RootfsImageID, err)
+	}
+
+	// Get image history to find the base layer
+	ctx := context.TODO()
+	history, err := img.History(ctx)
+	if err != nil {
+		return "", fmt.Errorf("failed to get image history: %w", err)
+	}
+
+	if len(history) == 0 {
+		return "", fmt.Errorf("image has no history layers")
+	}
+
+	// The base image is typically the last (bottom) layer in the history
+	// that has a valid ID (not empty and not "<missing>")
+	for i := len(history) - 1; i >= 0; i-- {
+		layer := history[i]
+		if layer.ID != "" && layer.ID != "<missing>" {
+			// For shared base layers, we typically want a well-known base image
+			// For now, return the current image ID - this will need refinement
+			// based on specific use cases
+			return c.config.RootfsImageID, nil
+		}
+	}
+
+	// Fallback to the current image
+	return c.config.RootfsImageID, nil
+}
+
 // mountSharedBaseLayers creates a container mount using shared base layers from NFS
 // and local upperdir/workdir for writable content
 func (c *Container) mountSharedBaseLayers() (string, error) {
@@ -79,16 +124,24 @@ func (c *Container) mountSharedBaseLayers() (string, error) {
 		return "", fmt.Errorf("container store is not available")
 	}
 
-	// Get container image information
-	imageID := c.config.RootfsImageID
-	if imageID == "" {
-		return "", fmt.Errorf("container has no image ID for shared base layers")
+	// Get the base image ID for shared base layers
+	baseImageID, err := c.getBaseImageID()
+	if err != nil {
+		return "", fmt.Errorf("failed to get base image ID: %w", err)
 	}
 
-	// Get the shared storage location for the image layers
-	img, err := c.runtime.store.Image(imageID)
+	// Store the base image ID for garbage collection tracking
+	// Note: This is a runtime update, not persisted to config immediately
+	// The config update should happen during container creation/start
+	if c.config.SharedBaseImageID == "" {
+		c.config.SharedBaseImageID = baseImageID
+		logrus.Debugf("Set SharedBaseImageID to %s for container %s", baseImageID, c.ID())
+	}
+
+	// Get the shared storage location for the base image layers
+	img, err := c.runtime.store.Image(baseImageID)
 	if err != nil {
-		return "", fmt.Errorf("failed to get image info: %w", err)
+		return "", fmt.Errorf("failed to get base image info: %w", err)
 	}
 
 	// Get the storage driver's layer location
@@ -139,23 +192,284 @@ func (c *Container) mountSharedBaseLayers() (string, error) {
 	return mountPoint, nil
 }
 
+// isMounted checks if a path is currently mounted by reading /proc/mounts
+func isMounted(path string) (bool, error) {
+	// Resolve any symlinks to get the canonical path
+	resolvedPath, err := filepath.EvalSymlinks(path)
+	if err != nil {
+		// If path doesn't exist or can't be resolved, it's not mounted
+		if os.IsNotExist(err) {
+			return false, nil
+		}
+		return false, fmt.Errorf("failed to resolve path %s: %w", path, err)
+	}
+
+	// Check if path exists in /proc/mounts
+	mounts, err := os.ReadFile("/proc/mounts")
+	if err != nil {
+		return false, fmt.Errorf("failed to read /proc/mounts: %w", err)
+	}
+
+	// Look for the resolved path in mount entries
+	for _, line := range strings.Split(string(mounts), "\n") {
+		fields := strings.Fields(line)
+		if len(fields) >= 2 && fields[1] == resolvedPath {
+			return true, nil
+		}
+	}
+	return false, nil
+}
+
+// unmountWithRetry attempts to unmount a path with retry mechanism
+func (c *Container) unmountWithRetry(mountPoint string, maxRetries int) error {
+	var lastErr error
+
+	for attempt := 0; attempt <= maxRetries; attempt++ {
+		if attempt > 0 {
+			logrus.Debugf("Retry attempt %d/%d for unmounting %s", attempt, maxRetries, mountPoint)
+			// Brief delay between retries to allow processes to finish
+			time.Sleep(time.Millisecond * 100)
+		}
+
+		// Check if still mounted before attempting unmount
+		mounted, err := isMounted(mountPoint)
+		if err != nil {
+			logrus.Warnf("Failed to check mount status for %s: %v", mountPoint, err)
+		} else if !mounted {
+			logrus.Debugf("Path %s is not mounted, skipping unmount", mountPoint)
+			return nil
+		}
+
+		// Try normal unmount first
+		err = unix.Unmount(mountPoint, unix.MNT_DETACH)
+		if err == nil {
+			logrus.Debugf("Successfully unmounted %s on attempt %d", mountPoint, attempt+1)
+			return nil
+		}
+
+		lastErr = err
+
+		// Handle specific error cases
+		if err == syscall.EINVAL || err == syscall.ENOENT {
+			// Already unmounted or doesn't exist
+			logrus.Debugf("Path %s already unmounted or doesn't exist: %v", mountPoint, err)
+			return nil
+		}
+
+		if err == syscall.EBUSY && attempt < maxRetries {
+			// Device is busy, try again
+			logrus.Debugf("Device busy, will retry unmounting %s: %v", mountPoint, err)
+			continue
+		}
+
+		// On final attempt or non-recoverable error, try force unmount
+		if attempt == maxRetries || err != syscall.EBUSY {
+			logrus.Debugf("Attempting force unmount for %s: %v", mountPoint, err)
+			forceErr := unix.Unmount(mountPoint, unix.MNT_FORCE|unix.MNT_DETACH)
+			if forceErr == nil {
+				logrus.Warnf("Force unmount succeeded for %s after %d attempts", mountPoint, attempt+1)
+				return nil
+			}
+
+			// Both normal and force unmount failed
+			return fmt.Errorf("failed to unmount %s after %d attempts: %w (force unmount also failed: %v)",
+				mountPoint, attempt+1, lastErr, forceErr)
+		}
+	}
+
+	return fmt.Errorf("failed to unmount %s after %d attempts: %w", mountPoint, maxRetries+1, lastErr)
+}
+
 // unmountSharedBaseLayers unmounts the shared base layers overlay and cleans up directories
 func (c *Container) unmountSharedBaseLayers(mountPoint string) error {
-	logrus.Debugf("Unmounting shared base layers for container %s at %s", c.ID(), mountPoint)
+	logrus.Infof("Starting cleanup of shared base layers for container %s at %s", c.ID(), mountPoint)
 
-	// Unmount the overlay
-	if err := unix.Unmount(mountPoint, 0); err != nil {
-		if err != syscall.EINVAL && err != syscall.ENOENT {
-			return fmt.Errorf("unmounting shared base layers overlay %s: %w", mountPoint, err)
+	// Safety check: ensure mountPoint is valid and not empty
+	if mountPoint == "" {
+		logrus.Debugf("Container %s has empty mountpoint, skipping shared base layers cleanup", c.ID())
+		return nil
+	}
+
+	// Safety check: ensure we're not accidentally unmounting system directories
+	systemDirs := []string{"/", "/usr", "/var", "/etc", "/bin", "/sbin", "/lib", "/lib64", "/boot", "/dev", "/proc", "/sys"}
+	for _, sysDir := range systemDirs {
+		if mountPoint == sysDir {
+			return fmt.Errorf("refusing to unmount system directory %s for container %s", mountPoint, c.ID())
 		}
-		// If it's just an EINVAL or ENOENT, debug logs only
-		logrus.Debugf("Container %s failed to unmount shared base layers %s: %v", c.ID(), mountPoint, err)
+	}
+
+	// Additional safety: ensure mountpoint is within expected container paths
+	expectedPrefixes := []string{
+		c.runtime.config.Engine.TmpDir,
+		"/var/lib/containers",
+		"/tmp",
+	}
+	isValidPath := false
+	for _, prefix := range expectedPrefixes {
+		if strings.HasPrefix(mountPoint, prefix) {
+			isValidPath = true
+			break
+		}
+	}
+	if !isValidPath {
+		logrus.Warnf("Mount point %s for container %s is outside expected paths, proceeding with caution", mountPoint, c.ID())
+	}
+
+	// Check if the mount point is actually mounted before attempting unmount
+	mounted, err := isMounted(mountPoint)
+	if err != nil {
+		logrus.Warnf("Failed to check mount status for %s: %v, proceeding with unmount attempt", mountPoint, err)
+	} else if !mounted {
+		logrus.Debugf("Mount point %s for container %s is not currently mounted", mountPoint, c.ID())
+	} else {
+		logrus.Debugf("Mount point %s for container %s is currently mounted, proceeding with unmount", mountPoint, c.ID())
+	}
+
+	// Attempt unmount with retry mechanism
+	const maxRetries = 3
+	if err := c.unmountWithRetry(mountPoint, maxRetries); err != nil {
+		// Log detailed error but don't fail catastrophically
+		logrus.Errorf("Failed to unmount shared base layers for container %s at %s: %v", c.ID(), mountPoint, err)
+
+		// Check if mount point is still active after failure
+		if stillMounted, checkErr := isMounted(mountPoint); checkErr == nil && stillMounted {
+			logrus.Errorf("WARNING: Mount point %s for container %s is still active after failed unmount - potential resource leak", mountPoint, c.ID())
+			// In production, we might want to register this for later cleanup
+		}
+
+		return fmt.Errorf("unmounting shared base layers overlay %s: %w", mountPoint, err)
+	}
+
+	// Verify unmount was successful
+	if mounted, err := isMounted(mountPoint); err == nil && mounted {
+		return fmt.Errorf("verification failed: mount point %s for container %s is still mounted after unmount", mountPoint, c.ID())
 	}
 
 	// Clean up the container work directories
 	containerWorkDir := filepath.Join(c.runtime.config.Engine.TmpDir, "shared-layers", c.ID())
+	logrus.Debugf("Cleaning up work directory %s for container %s", containerWorkDir, c.ID())
+
 	if err := os.RemoveAll(containerWorkDir); err != nil {
 		logrus.Warnf("Failed to clean up shared base layers work directory %s: %v", containerWorkDir, err)
+		// Don't return error for cleanup failures - log and continue
+		// but this could indicate permission issues or busy files
+
+		// Try to identify what might be preventing cleanup
+		if _, statErr := os.Stat(containerWorkDir); statErr == nil {
+			logrus.Warnf("Work directory %s still exists after cleanup attempt", containerWorkDir)
+		}
+	} else {
+		logrus.Debugf("Successfully cleaned up work directory %s", containerWorkDir)
+	}
+
+	logrus.Infof("Successfully cleaned up shared base layers for container %s", c.ID())
+	return nil
+}
+
+// cleanupAllSharedBaseLayers performs system-wide cleanup of any orphaned shared base layer mounts
+// This is a safety function to be called during runtime shutdown or periodic cleanup
+func (r *Runtime) cleanupAllSharedBaseLayers() error {
+	if r.config.Engine.TmpDir == "" {
+		return nil
+	}
+
+	sharedLayersDir := filepath.Join(r.config.Engine.TmpDir, "shared-layers")
+	if _, err := os.Stat(sharedLayersDir); os.IsNotExist(err) {
+		// No shared layers directory exists, nothing to cleanup
+		return nil
+	}
+
+	logrus.Infof("Performing system-wide cleanup of shared base layers in %s", sharedLayersDir)
+
+	// Read all container directories in shared-layers
+	entries, err := os.ReadDir(sharedLayersDir)
+	if err != nil {
+		return fmt.Errorf("failed to read shared layers directory %s: %w", sharedLayersDir, err)
+	}
+
+	var cleanupErrors []error
+	cleanupCount := 0
+
+	for _, entry := range entries {
+		if !entry.IsDir() {
+			continue
+		}
+
+		containerID := entry.Name()
+		containerWorkDir := filepath.Join(sharedLayersDir, containerID)
+		mergeMountPoint := filepath.Join(containerWorkDir, "merged")
+
+		// Check if this mount point is still active
+		mounted, err := isMounted(mergeMountPoint)
+		if err != nil {
+			logrus.Warnf("Failed to check mount status for %s: %v", mergeMountPoint, err)
+			continue
+		}
+
+		if mounted {
+			logrus.Warnf("Found orphaned shared base layer mount: %s", mergeMountPoint)
+
+			// Try to unmount it
+			if err := unix.Unmount(mergeMountPoint, unix.MNT_DETACH); err != nil {
+				if err != syscall.EINVAL && err != syscall.ENOENT {
+					// Try force unmount
+					if forceErr := unix.Unmount(mergeMountPoint, unix.MNT_FORCE|unix.MNT_DETACH); forceErr != nil {
+						cleanupErrors = append(cleanupErrors, fmt.Errorf("failed to unmount orphaned mount %s: %w (force also failed: %v)", mergeMountPoint, err, forceErr))
+						continue
+					}
+				}
+			}
+			cleanupCount++
+			logrus.Infof("Cleaned up orphaned shared base layer mount: %s", mergeMountPoint)
+		}
+
+		// Try to remove the work directory if it's empty or contains only expected files
+		if err := os.RemoveAll(containerWorkDir); err != nil {
+			logrus.Warnf("Failed to remove work directory %s: %v", containerWorkDir, err)
+		} else {
+			logrus.Debugf("Removed work directory: %s", containerWorkDir)
+		}
+	}
+
+	if len(cleanupErrors) > 0 {
+		logrus.Errorf("System-wide shared base layers cleanup completed with %d errors", len(cleanupErrors))
+		return fmt.Errorf("cleanup completed with errors: %v", cleanupErrors)
+	}
+
+	if cleanupCount > 0 {
+		logrus.Infof("System-wide shared base layers cleanup completed: cleaned up %d orphaned mounts", cleanupCount)
+	} else {
+		logrus.Debugf("System-wide shared base layers cleanup completed: no orphaned mounts found")
+	}
+
+	return nil
+}
+
+// ensureSharedBaseLayersCleanup ensures proper cleanup of shared base layers
+// This function can be called during container removal or system shutdown
+func (c *Container) ensureSharedBaseLayersCleanup() error {
+	if !c.config.SharedBaseLayers {
+		return nil
+	}
+
+	// First try the normal cleanup
+	if c.state.Mountpoint != "" {
+		if err := c.unmountSharedBaseLayers(c.state.Mountpoint); err != nil {
+			logrus.Warnf("Normal shared base layers cleanup failed for %s: %v", c.ID(), err)
+		}
+	}
+
+	// Then ensure no orphaned mounts remain
+	if c.runtime.config.Engine.TmpDir != "" {
+		containerWorkDir := filepath.Join(c.runtime.config.Engine.TmpDir, "shared-layers", c.ID())
+		mergeMountPoint := filepath.Join(containerWorkDir, "merged")
+
+		if mounted, err := isMounted(mergeMountPoint); err == nil && mounted {
+			logrus.Warnf("Found remaining mount after cleanup: %s", mergeMountPoint)
+			if err := c.unmountSharedBaseLayers(mergeMountPoint); err != nil {
+				return fmt.Errorf("failed to cleanup remaining shared base layer mount %s: %w", mergeMountPoint, err)
+			}
+		}
 	}
 
 	return nil

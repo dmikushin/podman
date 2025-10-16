@@ -713,6 +713,12 @@ func createContainerOptions(rt *libpod.Runtime, s *specgen.SpecGenerator, pod *l
 
 	if s.SharedBaseLayers != nil && *s.SharedBaseLayers {
 		options = append(options, libpod.WithSharedBaseLayers(true))
+		// For shared base layers, we need to determine the base image ID
+		// For now, we'll use the same image ID as the root filesystem
+		// This can be refined later to better identify base vs application layers
+		if len(s.Image) > 0 {
+			options = append(options, libpod.WithSharedBaseImageID(s.Image))
+		}
 	}
 
 	return options, nil

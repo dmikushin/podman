@@ -354,6 +354,8 @@ the container when it exits. The default is **false**.
 
 @@option security-opt
 
+@@option shared-base-layers
+
 @@option shm-size
 
 @@option shm-size-systemd

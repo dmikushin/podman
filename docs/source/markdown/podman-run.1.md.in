@@ -387,6 +387,8 @@ container is using it. Implies --rm on the new container. The default is *false*
 
 @@option security-opt
 
+@@option shared-base-layers
+
 @@option shm-size
 
 @@option shm-size-systemd

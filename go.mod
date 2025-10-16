@@ -1,4 +1,4 @@
-module github.com/dmikushin/podman-shared
+module github.com/dmikushin/podman-shared/v5
 
 // Warning: if there is a "toolchain" directive anywhere in this file (and most of the
 // time there shouldn't be), its version must be an exact match to the "go" directive.

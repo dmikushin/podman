@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings/system"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/system"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 )
 
 const (

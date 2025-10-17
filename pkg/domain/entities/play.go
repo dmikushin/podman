@@ -3,7 +3,7 @@ package entities
 import (
 	"net"
 
-	entitiesTypes "github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	entitiesTypes "github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 	"go.podman.io/image/v5/types"
 )
 

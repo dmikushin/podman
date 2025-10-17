@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/events"
-	volplugin "github.com/dmikushin/podman-shared/libpod/plugin"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
+	volplugin "github.com/dmikushin/podman-shared/v5/libpod/plugin"
 	pluginapi "github.com/docker/go-plugins-helpers/volume"
 	"github.com/opencontainers/selinux/go-selinux"
 	"github.com/sirupsen/logrus"

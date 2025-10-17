@@ -6,10 +6,10 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
-	"github.com/dmikushin/podman-shared/pkg/api/server/idle"
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/server/idle"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
 	"github.com/sirupsen/logrus"
 )
 

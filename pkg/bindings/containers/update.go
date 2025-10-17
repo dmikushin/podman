@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/api/handlers"
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 	jsoniter "github.com/json-iterator/go"
 )
 

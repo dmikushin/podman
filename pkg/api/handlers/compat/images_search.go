@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
-	"github.com/dmikushin/podman-shared/pkg/auth"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/infra/abi"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/auth"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/infra/abi"
 	"go.podman.io/image/v5/types"
 	"go.podman.io/storage"
 )

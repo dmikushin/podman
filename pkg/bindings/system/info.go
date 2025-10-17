@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
 )
 
 // Info returns information about the libpod environment and its stores

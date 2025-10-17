@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/bindings/secrets"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/secrets"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"

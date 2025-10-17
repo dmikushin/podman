@@ -16,7 +16,7 @@ import (
 	"unsafe"
 
 	"github.com/Microsoft/go-winio"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/storage/pkg/fileutils"
 	"go.podman.io/storage/pkg/homedir"

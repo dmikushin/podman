@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/hyperv/vsock"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/hyperv/vsock"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 	"github.com/sirupsen/logrus"
 )
 

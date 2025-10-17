@@ -7,9 +7,9 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"go.podman.io/common/pkg/config"

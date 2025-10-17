@@ -3,7 +3,7 @@ package e2e_test
 import (
 	"runtime"
 
-	"github.com/dmikushin/podman-shared/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
 	jsoniter "github.com/json-iterator/go"
 
 	. "github.com/onsi/ginkgo/v2"

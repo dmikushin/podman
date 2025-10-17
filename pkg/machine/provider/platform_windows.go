@@ -5,12 +5,12 @@ import (
 	"os"
 
 	"github.com/containers/libhvee/pkg/hypervctl"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
-	"github.com/dmikushin/podman-shared/pkg/machine/wsl"
-	"github.com/dmikushin/podman-shared/pkg/machine/wsl/wutil"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/wsl"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/wsl/wutil"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/hyperv"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/hyperv"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/config"
 )

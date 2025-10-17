@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 )
 
 func generateEventFilter(filter, filterValue string) (func(e *Event) bool, error) {

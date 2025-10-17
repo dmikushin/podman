@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/coreos/go-systemd/v22/journal"
 	"github.com/coreos/go-systemd/v22/sdjournal"
 	"github.com/sirupsen/logrus"

@@ -4,10 +4,10 @@ import (
 	"context"
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/infra"
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/infra"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

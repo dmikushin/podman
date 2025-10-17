@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 	"go.podman.io/common/pkg/filters"
 	"go.podman.io/common/pkg/util"
 	"go.podman.io/storage"

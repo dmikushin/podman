@@ -3,7 +3,7 @@ package e2e_test
 import (
 	"strconv"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 	jsoniter "github.com/json-iterator/go"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

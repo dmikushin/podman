@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	"github.com/sirupsen/logrus"
 )
 

@@ -15,9 +15,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/shutdown"
-	"github.com/dmikushin/podman-shared/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/shutdown"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
 	securejoin "github.com/cyphar/filepath-securejoin"
 	"github.com/moby/sys/capability"
 	spec "github.com/opencontainers/runtime-spec/specs-go"

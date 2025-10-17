@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/events"
-	"github.com/dmikushin/podman-shared/libpod/logs"
-	"github.com/dmikushin/podman-shared/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/libpod/logs"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
 	"github.com/coreos/go-systemd/v22/sdjournal"
 	"github.com/sirupsen/logrus"
 )

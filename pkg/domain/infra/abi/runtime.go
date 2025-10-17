@@ -5,7 +5,7 @@ package abi
 import (
 	"sync"
 
-	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod"
 )
 
 // Image-related runtime linked against libpod library

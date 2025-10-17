@@ -7,7 +7,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 	v1 "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/sirupsen/logrus"
 	istorage "go.podman.io/image/v5/storage"

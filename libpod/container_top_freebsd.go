@@ -10,8 +10,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/google/shlex"
 	"github.com/sirupsen/logrus"
 )

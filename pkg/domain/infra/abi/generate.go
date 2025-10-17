@@ -9,13 +9,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	k8sAPI "github.com/dmikushin/podman-shared/pkg/k8s.io/api/core/v1"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
-	generateUtils "github.com/dmikushin/podman-shared/pkg/specgen/generate"
-	"github.com/dmikushin/podman-shared/pkg/systemd/generate"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	k8sAPI "github.com/dmikushin/podman-shared/v5/pkg/k8s.io/api/core/v1"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
+	generateUtils "github.com/dmikushin/podman-shared/v5/pkg/specgen/generate"
+	"github.com/dmikushin/podman-shared/v5/pkg/systemd/generate"
 	"sigs.k8s.io/yaml"
 )
 

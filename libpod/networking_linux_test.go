@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 	"go.podman.io/common/libnetwork/types"
 )
 

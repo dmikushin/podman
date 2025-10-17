@@ -6,10 +6,10 @@ import (
 	"context"
 	"fmt"
 
-	ientities "github.com/dmikushin/podman-shared/internal/domain/entities"
-	"github.com/dmikushin/podman-shared/internal/domain/infra/tunnel"
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	ientities "github.com/dmikushin/podman-shared/v5/internal/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/internal/domain/infra/tunnel"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 )
 
 // NewTestingEngine factory provides a libpod runtime for testing-specific operations

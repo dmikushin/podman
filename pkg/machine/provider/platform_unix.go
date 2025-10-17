@@ -8,9 +8,9 @@ import (
 	"io/fs"
 	"os"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/qemu"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/qemu"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/config"
 )

@@ -5,7 +5,7 @@ package server
 import (
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/compat"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/compat"
 	"github.com/gorilla/mux"
 )
 

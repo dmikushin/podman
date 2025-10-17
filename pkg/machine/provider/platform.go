@@ -1,9 +1,9 @@
 package provider
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 )
 
 func InstalledProviders() ([]define.VMType, error) {

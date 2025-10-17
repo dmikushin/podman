@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	podmanRegistry "github.com/dmikushin/podman-shared/hack/podman-registry-go"
-	. "github.com/dmikushin/podman-shared/test/utils"
+	podmanRegistry "github.com/dmikushin/podman-shared/v5/hack/podman-registry-go"
+	. "github.com/dmikushin/podman-shared/v5/test/utils"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	. "github.com/onsi/gomega/gexec"

@@ -3,7 +3,7 @@ package types
 import (
 	"time"
 
-	define "github.com/dmikushin/podman-shared/pkg/ps/define"
+	define "github.com/dmikushin/podman-shared/v5/pkg/ps/define"
 	netTypes "go.podman.io/common/libnetwork/types"
 )
 

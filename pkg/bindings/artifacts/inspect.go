@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 )
 
 func Inspect(ctx context.Context, nameOrID string, _ *InspectOptions) (*types.ArtifactInspectReport, error) {

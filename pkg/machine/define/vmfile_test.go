@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/dmikushin/podman-shared/test/utils"
+	"github.com/dmikushin/podman-shared/v5/test/utils"
 )
 
 func TestMachineFile_GetPath(t *testing.T) {

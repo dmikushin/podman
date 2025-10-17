@@ -9,9 +9,9 @@ import (
 	"slices"
 	"strconv"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/events"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 	"go.podman.io/common/libnetwork/pasta"
 	"go.podman.io/common/libnetwork/slirp4netns"
 	"go.podman.io/common/libnetwork/types"

@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/systemd/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/systemd/define"
 )
 
 // minTimeoutStopSec is the minimal stop timeout for generated systemd units.

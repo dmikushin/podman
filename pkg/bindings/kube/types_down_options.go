@@ -4,7 +4,7 @@ package kube
 import (
 	"net/url"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings/internal/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/internal/util"
 )
 
 // Changed returns true if named field has been set

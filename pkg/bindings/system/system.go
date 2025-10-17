@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 	"github.com/sirupsen/logrus"
 )
 

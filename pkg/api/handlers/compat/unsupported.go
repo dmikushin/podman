@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
-	"github.com/dmikushin/podman-shared/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/errorhandling"
 	log "github.com/sirupsen/logrus"
 )
 

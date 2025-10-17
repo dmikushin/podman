@@ -9,7 +9,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/dmikushin/podman-shared/version"
+	"github.com/dmikushin/podman-shared/v5/version"
 	"github.com/gorilla/mux"
 )
 

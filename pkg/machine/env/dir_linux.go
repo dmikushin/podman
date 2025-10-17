@@ -1,8 +1,8 @@
 package env
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 )
 
 func getRuntimeDir() (string, error) {

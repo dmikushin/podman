@@ -4,10 +4,10 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	commonFlag "go.podman.io/common/pkg/flag"
 )

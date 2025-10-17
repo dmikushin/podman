@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
 	"github.com/mdlayher/vsock"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

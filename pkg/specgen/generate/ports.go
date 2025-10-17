@@ -9,9 +9,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/specgen"
-	"github.com/dmikushin/podman-shared/pkg/specgenutil"
-	"github.com/dmikushin/podman-shared/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgenutil"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libimage"
 	"go.podman.io/common/libnetwork/types"

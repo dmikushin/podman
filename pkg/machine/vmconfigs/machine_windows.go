@@ -1,8 +1,8 @@
 package vmconfigs
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
 )
 
 func getPipe(name string) *define.VMFile {

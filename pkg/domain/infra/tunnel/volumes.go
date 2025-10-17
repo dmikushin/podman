@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings/volumes"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/reports"
-	"github.com/dmikushin/podman-shared/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/volumes"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/reports"
+	"github.com/dmikushin/podman-shared/v5/pkg/errorhandling"
 )
 
 func (ic *ContainerEngine) VolumeCreate(_ context.Context, opts entities.VolumeCreateOptions) (*entities.IDOrNameResponse, error) {

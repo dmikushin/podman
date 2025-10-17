@@ -6,12 +6,12 @@ import (
 	"errors"
 	"net/http"
 
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
 	"github.com/sirupsen/logrus"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
 )
 
 func StartContainer(w http.ResponseWriter, r *http.Request) {

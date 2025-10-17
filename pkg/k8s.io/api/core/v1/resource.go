@@ -17,7 +17,7 @@ limitations under the License.
 package v1
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/k8s.io/apimachinery/pkg/api/resource"
+	"github.com/dmikushin/podman-shared/v5/pkg/k8s.io/apimachinery/pkg/api/resource"
 )
 
 // Returns string version of ResourceName.

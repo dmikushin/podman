@@ -5,8 +5,8 @@ package machine
 import (
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/ignition"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/ignition"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 	"github.com/sirupsen/logrus"
 )
 

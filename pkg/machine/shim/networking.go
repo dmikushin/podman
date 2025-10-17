@@ -9,12 +9,12 @@ import (
 	"time"
 
 	gvproxy "github.com/containers/gvisor-tap-vsock/pkg/types"
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/connection"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
-	"github.com/dmikushin/podman-shared/pkg/machine/ports"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/connection"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/ports"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/config"
 )

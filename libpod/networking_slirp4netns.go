@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/v5/pkg/errorhandling"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libnetwork/slirp4netns"
 	"go.podman.io/common/libnetwork/types"

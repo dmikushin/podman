@@ -12,11 +12,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/logs"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/logs"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	log "github.com/sirupsen/logrus"
 )
 

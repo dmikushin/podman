@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
 	psutil "github.com/shirou/gopsutil/v4/process"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"

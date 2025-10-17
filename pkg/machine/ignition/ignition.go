@@ -12,8 +12,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/systemd/parser"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/systemd/parser"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/storage/pkg/fileutils"
 )

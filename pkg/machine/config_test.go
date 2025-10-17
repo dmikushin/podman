@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
 	"github.com/stretchr/testify/assert"
 )
 

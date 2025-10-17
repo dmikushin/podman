@@ -5,11 +5,11 @@ package machine
 import (
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
-	"github.com/dmikushin/podman-shared/libpod/events"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
-	"github.com/dmikushin/podman-shared/pkg/machine/shim"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/shim"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 	"github.com/spf13/cobra"
 )
 

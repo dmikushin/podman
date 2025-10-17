@@ -5,8 +5,8 @@ package ctr
 import (
 	"context"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/pkg/parallel"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/pkg/parallel"
 	"github.com/sirupsen/logrus"
 )
 

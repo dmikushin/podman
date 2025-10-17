@@ -5,10 +5,10 @@ package libpod
 import (
 	"net/http"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
 )
 
 func RunHealthCheck(w http.ResponseWriter, r *http.Request) {

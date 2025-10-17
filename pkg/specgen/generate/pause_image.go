@@ -5,7 +5,7 @@ package generate
 import (
 	"context"
 
-	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod"
 	"go.podman.io/common/pkg/config"
 )
 

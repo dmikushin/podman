@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/bindings/containers"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/containers"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"

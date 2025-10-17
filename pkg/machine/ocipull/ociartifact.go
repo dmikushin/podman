@@ -10,9 +10,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/compression"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/compression"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	"github.com/opencontainers/go-digest"
 	specV1 "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/sirupsen/logrus"

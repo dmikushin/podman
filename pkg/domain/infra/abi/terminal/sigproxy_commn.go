@@ -7,10 +7,10 @@ import (
 	"os"
 	"syscall"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/shutdown"
-	"github.com/dmikushin/podman-shared/pkg/signal"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/shutdown"
+	"github.com/dmikushin/podman-shared/v5/pkg/signal"
 	"github.com/sirupsen/logrus"
 )
 

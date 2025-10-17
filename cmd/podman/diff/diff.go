@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 	"github.com/spf13/cobra"
 	"go.podman.io/common/pkg/report"
 	"go.podman.io/storage/pkg/archive"

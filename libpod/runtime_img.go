@@ -9,8 +9,8 @@ import (
 
 	buildahDefine "github.com/containers/buildah/define"
 	"github.com/containers/buildah/imagebuildah"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libimage"
 	"go.podman.io/image/v5/docker/reference"

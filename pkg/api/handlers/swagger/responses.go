@@ -4,11 +4,11 @@
 package swagger
 
 import (
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/reports"
-	"github.com/dmikushin/podman-shared/pkg/inspect"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/reports"
+	"github.com/dmikushin/podman-shared/v5/pkg/inspect"
 	"github.com/docker/docker/api/types/container"
 	dockerImage "github.com/docker/docker/api/types/image"
 	"github.com/docker/docker/api/types/network"

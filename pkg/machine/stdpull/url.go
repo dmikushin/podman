@@ -11,9 +11,9 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/compression"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/compression"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/storage/pkg/fileutils"
 )

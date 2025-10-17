@@ -1,6 +1,6 @@
 package types
 
-import "github.com/dmikushin/podman-shared/pkg/domain/entities"
+import "github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 
 // LibpodImagesRemoveReport is the return type for image removal via the rest
 // api.

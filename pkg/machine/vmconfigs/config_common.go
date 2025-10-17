@@ -5,8 +5,8 @@ package vmconfigs
 import (
 	"os"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/qemu/command"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/qemu/command"
 )
 
 type QEMUConfig struct {

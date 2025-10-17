@@ -3,8 +3,8 @@ package bindings_test
 import (
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/api/handlers"
-	"github.com/dmikushin/podman-shared/pkg/bindings/containers"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/containers"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"

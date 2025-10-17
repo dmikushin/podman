@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/systemd/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/systemd/define"
 	"github.com/stretchr/testify/assert"
 )
 

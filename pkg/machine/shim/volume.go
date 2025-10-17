@@ -1,8 +1,8 @@
 package shim
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 )
 
 func CmdLineVolumesToMounts(volumes []string, volumeType vmconfigs.VolumeMountType) []*vmconfigs.Mount {

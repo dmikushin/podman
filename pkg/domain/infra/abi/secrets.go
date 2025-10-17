@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod/events"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/utils"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/utils"
 	"go.podman.io/common/pkg/secrets"
 )
 

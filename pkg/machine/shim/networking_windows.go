@@ -3,11 +3,11 @@ package shim
 import (
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
-	sc "github.com/dmikushin/podman-shared/pkg/machine/sockets"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
+	sc "github.com/dmikushin/podman-shared/v5/pkg/machine/sockets"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 )
 
 func setupMachineSockets(mc *vmconfigs.MachineConfig, _ *define.MachineDirs) ([]string, string, machine.APIForwardingState, error) {

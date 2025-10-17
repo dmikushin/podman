@@ -18,9 +18,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/libartifact"
-	libartTypes "github.com/dmikushin/podman-shared/pkg/libartifact/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/libartifact"
+	libartTypes "github.com/dmikushin/podman-shared/v5/pkg/libartifact/types"
 	"github.com/opencontainers/go-digest"
 	"github.com/opencontainers/image-spec/specs-go"
 	specV1 "github.com/opencontainers/image-spec/specs-go/v1"

@@ -1,7 +1,7 @@
 package entities
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 )
 
 // ServiceOptions provides the input for starting an API and sidecar pprof services

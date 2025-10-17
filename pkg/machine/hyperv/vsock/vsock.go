@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/Microsoft/go-winio"
-	"github.com/dmikushin/podman-shared/pkg/machine/sockets"
-	"github.com/dmikushin/podman-shared/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/sockets"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/windows/registry"
 )

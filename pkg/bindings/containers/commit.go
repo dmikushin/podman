@@ -9,9 +9,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/bindings/images"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/images"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
 	"go.podman.io/storage/pkg/regexp"
 )
 

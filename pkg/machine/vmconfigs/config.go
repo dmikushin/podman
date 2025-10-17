@@ -4,8 +4,8 @@ import (
 	"time"
 
 	gvproxy "github.com/containers/gvisor-tap-vsock/pkg/types"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
-	"github.com/dmikushin/podman-shared/pkg/machine/ignition"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/ignition"
 	"go.podman.io/common/pkg/strongunits"
 	"go.podman.io/storage/pkg/lockfile"
 )

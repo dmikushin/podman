@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/signal"
+	"github.com/dmikushin/podman-shared/v5/pkg/signal"
 	"go.podman.io/image/v5/manifest"
 )
 

@@ -9,8 +9,8 @@ import (
 	"maps"
 	"os"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	v1 "github.com/dmikushin/podman-shared/pkg/k8s.io/api/core/v1"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	v1 "github.com/dmikushin/podman-shared/v5/pkg/k8s.io/api/core/v1"
 	"go.podman.io/common/pkg/parse"
 	"go.podman.io/common/pkg/secrets"
 	"go.podman.io/storage/pkg/fileutils"

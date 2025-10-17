@@ -10,9 +10,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/opencontainers/selinux/go-selinux"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libnetwork/pasta"

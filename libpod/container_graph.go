@@ -9,9 +9,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/parallel"
-	"github.com/dmikushin/podman-shared/pkg/syncmap"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/parallel"
+	"github.com/dmikushin/podman-shared/v5/pkg/syncmap"
 	"github.com/sirupsen/logrus"
 )
 

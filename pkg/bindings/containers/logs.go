@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
 )
 
 // Logs obtains a container's logs given the options provided.  The logs are then sent to the

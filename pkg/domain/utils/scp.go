@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/config"
 	"go.podman.io/common/pkg/ssh"

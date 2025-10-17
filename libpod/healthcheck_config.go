@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/specgenutil"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgenutil"
 	"go.podman.io/image/v5/manifest"
 )
 

@@ -1,6 +1,6 @@
 package e2e_test
 
-import "github.com/dmikushin/podman-shared/pkg/machine/define"
+import "github.com/dmikushin/podman-shared/v5/pkg/machine/define"
 
 const podmanBinary = "../../../bin/darwin/podman"
 

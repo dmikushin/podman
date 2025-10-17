@@ -8,7 +8,7 @@ import (
 	"os"
 	"os/signal"
 
-	lsignal "github.com/dmikushin/podman-shared/pkg/signal"
+	lsignal "github.com/dmikushin/podman-shared/v5/pkg/signal"
 	"github.com/moby/term"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/resize"

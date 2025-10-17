@@ -8,7 +8,7 @@ package util
 import (
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
 	"go.podman.io/storage/pkg/homedir"
 )
 

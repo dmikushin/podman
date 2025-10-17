@@ -3,7 +3,7 @@ package types
 import (
 	"io"
 
-	"github.com/dmikushin/podman-shared/pkg/libartifact"
+	"github.com/dmikushin/podman-shared/v5/pkg/libartifact"
 	"github.com/opencontainers/go-digest"
 )
 

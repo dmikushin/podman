@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	. "github.com/dmikushin/podman-shared/test/utils"
-	"github.com/dmikushin/podman-shared/utils"
+	. "github.com/dmikushin/podman-shared/v5/test/utils"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

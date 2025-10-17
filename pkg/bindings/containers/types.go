@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"io"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 )
 
 // LogOptions describe finer control of log content or

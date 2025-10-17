@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
-	"github.com/dmikushin/podman-shared/pkg/fileserver"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/pkg/fileserver"
 	psutil "github.com/shirou/gopsutil/v4/process"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

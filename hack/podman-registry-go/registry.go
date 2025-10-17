@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/utils"
+	"github.com/dmikushin/podman-shared/v5/utils"
 	"github.com/sirupsen/logrus"
 )
 

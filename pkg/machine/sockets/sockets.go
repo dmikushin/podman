@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/storage/pkg/fileutils"
 )

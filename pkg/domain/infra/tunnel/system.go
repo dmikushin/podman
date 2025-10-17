@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/bindings/system"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/system"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 )
 
 func (ic *ContainerEngine) Info(_ context.Context) (*define.Info, error) {

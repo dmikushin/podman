@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 	spec "github.com/opencontainers/runtime-spec/specs-go"
 	"go.podman.io/image/v5/docker"
 	"go.podman.io/image/v5/pkg/shortnames"

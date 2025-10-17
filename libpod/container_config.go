@@ -6,9 +6,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/namespaces"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/namespaces"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
 	spec "github.com/opencontainers/runtime-spec/specs-go"
 	"go.podman.io/common/libnetwork/types"
 	"go.podman.io/common/pkg/secrets"

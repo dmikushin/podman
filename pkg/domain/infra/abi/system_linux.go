@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/pkg/cgroups"
 	"go.podman.io/common/pkg/config"

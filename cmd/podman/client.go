@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dmikushin/podman-shared/libpod/define"
+import "github.com/dmikushin/podman-shared/v5/libpod/define"
 
 type clientInfo struct {
 	OSArch      string `json:"OS"`

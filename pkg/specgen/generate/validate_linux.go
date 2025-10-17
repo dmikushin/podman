@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"reflect"
 
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"go.podman.io/common/pkg/cgroups"
 	"go.podman.io/common/pkg/sysinfo"

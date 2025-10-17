@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod/events"
-	"github.com/dmikushin/podman-shared/pkg/bindings/system"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/system"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 )
 
 func (ic *ContainerEngine) Events(_ context.Context, opts entities.EventsOptions) error {

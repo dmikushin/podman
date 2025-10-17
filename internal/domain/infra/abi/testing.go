@@ -9,8 +9,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/internal/domain/entities"
-	"github.com/dmikushin/podman-shared/libpod"
+	"github.com/dmikushin/podman-shared/v5/internal/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/libpod"
 	"go.podman.io/image/v5/manifest"
 	"go.podman.io/storage"
 	graphdriver "go.podman.io/storage/drivers"

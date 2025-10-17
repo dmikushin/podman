@@ -30,7 +30,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/k8s.io/apimachinery/pkg/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/k8s.io/apimachinery/pkg/types"
 )
 
 // TypeMeta describes an individual object in an API response or request

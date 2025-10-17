@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/containers/buildah"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/events"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/events"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/common/libimage"
 	is "go.podman.io/image/v5/storage"

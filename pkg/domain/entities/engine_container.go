@@ -4,10 +4,10 @@ import (
 	"context"
 	"io"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/reports"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/reports"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
 	netTypes "go.podman.io/common/libnetwork/types"
 	"go.podman.io/common/pkg/config"
 )

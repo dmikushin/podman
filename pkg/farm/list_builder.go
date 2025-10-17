@@ -6,7 +6,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 	"github.com/hashicorp/go-multierror"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/image/v5/docker"

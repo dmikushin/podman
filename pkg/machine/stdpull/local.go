@@ -1,8 +1,8 @@
 package stdpull
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/machine/compression"
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/compression"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/storage/pkg/fileutils"
 )

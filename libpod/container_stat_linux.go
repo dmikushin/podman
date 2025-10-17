@@ -4,7 +4,7 @@ package libpod
 
 import (
 	"github.com/containers/buildah/copier"
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 )
 
 // statInsideMount stats the specified path *inside* the container's mount and PID

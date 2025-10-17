@@ -3,8 +3,8 @@ package system
 import (
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
-	"github.com/dmikushin/podman-shared/cmd/podman/validate"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/validate"
 	"github.com/spf13/cobra"
 )
 

@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/containers/buildah/copier"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/copy"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/copy"
 )
 
 // statOnHost stats the specified path *on the host*.  It returns the file info

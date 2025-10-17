@@ -11,9 +11,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/systemd/parser"
-	. "github.com/dmikushin/podman-shared/test/utils"
-	"github.com/dmikushin/podman-shared/version"
+	"github.com/dmikushin/podman-shared/v5/pkg/systemd/parser"
+	. "github.com/dmikushin/podman-shared/v5/test/utils"
+	"github.com/dmikushin/podman-shared/v5/version"
 	"github.com/mattn/go-shellwords"
 
 	. "github.com/onsi/ginkgo/v2"

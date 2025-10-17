@@ -11,7 +11,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
 )
 
 func Extract(ctx context.Context, artifactName string, target string, options *ExtractOptions) error {

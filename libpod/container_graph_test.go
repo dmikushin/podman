@@ -5,7 +5,7 @@ package libpod
 import (
 	"testing"
 
-	"github.com/dmikushin/podman-shared/libpod/lock"
+	"github.com/dmikushin/podman-shared/v5/libpod/lock"
 	"github.com/stretchr/testify/assert"
 )
 

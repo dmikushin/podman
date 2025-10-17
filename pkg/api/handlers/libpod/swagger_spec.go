@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
 	"go.podman.io/storage/pkg/fileutils"
 )
 

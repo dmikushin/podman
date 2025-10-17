@@ -7,9 +7,9 @@ import (
 	"slices"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/bindings"
-	"github.com/dmikushin/podman-shared/pkg/bindings/containers"
-	"github.com/dmikushin/podman-shared/pkg/bindings/network"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/containers"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/network"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"

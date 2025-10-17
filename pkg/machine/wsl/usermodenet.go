@@ -9,11 +9,11 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
-	"github.com/dmikushin/podman-shared/pkg/machine/wsl/wutil"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/wsl/wutil"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
 	"github.com/sirupsen/logrus"
 )
 

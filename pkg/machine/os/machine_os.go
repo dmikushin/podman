@@ -5,10 +5,10 @@ package os
 import (
 	"fmt"
 
-	"github.com/dmikushin/podman-shared/pkg/machine"
-	"github.com/dmikushin/podman-shared/pkg/machine/env"
-	"github.com/dmikushin/podman-shared/pkg/machine/shim"
-	"github.com/dmikushin/podman-shared/pkg/machine/vmconfigs"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/env"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/shim"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/vmconfigs"
 )
 
 // MachineOS manages machine OS's from outside the machine.

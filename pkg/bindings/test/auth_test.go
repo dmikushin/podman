@@ -4,8 +4,8 @@ import (
 	"os"
 	"time"
 
-	podmanRegistry "github.com/dmikushin/podman-shared/hack/podman-registry-go"
-	"github.com/dmikushin/podman-shared/pkg/bindings/images"
+	podmanRegistry "github.com/dmikushin/podman-shared/v5/hack/podman-registry-go"
+	"github.com/dmikushin/podman-shared/v5/pkg/bindings/images"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"

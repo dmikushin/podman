@@ -17,10 +17,10 @@ limitations under the License.
 package v1
 
 import (
-	"github.com/dmikushin/podman-shared/pkg/k8s.io/apimachinery/pkg/api/resource"
-	metav1 "github.com/dmikushin/podman-shared/pkg/k8s.io/apimachinery/pkg/apis/meta/v1"
-	"github.com/dmikushin/podman-shared/pkg/k8s.io/apimachinery/pkg/types"
-	"github.com/dmikushin/podman-shared/pkg/k8s.io/apimachinery/pkg/util/intstr"
+	"github.com/dmikushin/podman-shared/v5/pkg/k8s.io/apimachinery/pkg/api/resource"
+	metav1 "github.com/dmikushin/podman-shared/v5/pkg/k8s.io/apimachinery/pkg/apis/meta/v1"
+	"github.com/dmikushin/podman-shared/v5/pkg/k8s.io/apimachinery/pkg/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/k8s.io/apimachinery/pkg/util/intstr"
 )
 
 // Volume represents a named volume in a pod that may be accessed by any container in the pod.

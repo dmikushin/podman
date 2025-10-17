@@ -7,10 +7,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/reports"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/reports"
 )
 
 // IsDir returns true if the specified path refers to a directory.

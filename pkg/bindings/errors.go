@@ -7,7 +7,7 @@ import (
 	"io"
 
 	"github.com/blang/semver/v4"
-	"github.com/dmikushin/podman-shared/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/v5/pkg/errorhandling"
 )
 
 var (

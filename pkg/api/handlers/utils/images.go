@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
-	"github.com/dmikushin/podman-shared/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/errorhandling"
 	"github.com/docker/distribution/registry/api/errcode"
 	"github.com/docker/docker/pkg/jsonmessage"
 	"github.com/sirupsen/logrus"

@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/lock"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/lock"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"go.podman.io/common/pkg/config"
 )

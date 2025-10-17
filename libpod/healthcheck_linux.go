@@ -11,9 +11,9 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/dmikushin/podman-shared/pkg/errorhandling"
-	"github.com/dmikushin/podman-shared/pkg/rootless"
-	"github.com/dmikushin/podman-shared/pkg/systemd"
+	"github.com/dmikushin/podman-shared/v5/pkg/errorhandling"
+	"github.com/dmikushin/podman-shared/v5/pkg/rootless"
+	"github.com/dmikushin/podman-shared/v5/pkg/systemd"
 	"github.com/sirupsen/logrus"
 	systemdCommon "go.podman.io/common/pkg/systemd"
 )

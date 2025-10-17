@@ -8,13 +8,13 @@ import (
 	goRuntime "runtime"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/pkg/api/handlers/utils"
-	api "github.com/dmikushin/podman-shared/pkg/api/types"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
-	"github.com/dmikushin/podman-shared/pkg/domain/entities/types"
-	"github.com/dmikushin/podman-shared/version"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/api/handlers/utils"
+	api "github.com/dmikushin/podman-shared/v5/pkg/api/types"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities/types"
+	"github.com/dmikushin/podman-shared/v5/version"
 )
 
 func VersionHandler(w http.ResponseWriter, r *http.Request) {

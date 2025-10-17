@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/containers/buildah/pkg/jail"
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/pkg/specgen"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/pkg/specgen"
 	"github.com/opencontainers/runtime-tools/generate"
 	"github.com/sirupsen/logrus"
 )

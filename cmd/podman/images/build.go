@@ -6,9 +6,9 @@ import (
 	"os/exec"
 
 	buildahCLI "github.com/containers/buildah/pkg/cli"
-	"github.com/dmikushin/podman-shared/cmd/podman/common"
-	"github.com/dmikushin/podman-shared/cmd/podman/registry"
-	"github.com/dmikushin/podman-shared/cmd/podman/utils"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/common"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/registry"
+	"github.com/dmikushin/podman-shared/v5/cmd/podman/utils"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

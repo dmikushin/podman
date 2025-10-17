@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/domain/entities"
+	"github.com/dmikushin/podman-shared/v5/pkg/domain/entities"
 	"github.com/stretchr/testify/assert"
 	"go.podman.io/common/pkg/secrets"
 )

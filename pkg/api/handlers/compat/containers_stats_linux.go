@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod"
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 	"github.com/docker/docker/api/types/container"
 	runccgroups "github.com/opencontainers/cgroups"
 	"github.com/sirupsen/logrus"

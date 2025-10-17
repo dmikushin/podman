@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
 	"github.com/docker/go-plugins-helpers/sdk"
 	"github.com/docker/go-plugins-helpers/volume"
 	jsoniter "github.com/json-iterator/go"

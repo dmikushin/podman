@@ -9,9 +9,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/dmikushin/podman-shared/libpod/define"
-	"github.com/dmikushin/podman-shared/libpod/logs"
-	systemdDefine "github.com/dmikushin/podman-shared/pkg/systemd/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/define"
+	"github.com/dmikushin/podman-shared/v5/libpod/logs"
+	systemdDefine "github.com/dmikushin/podman-shared/v5/pkg/systemd/define"
 	"github.com/nxadm/tail"
 	"github.com/nxadm/tail/watch"
 	"github.com/sirupsen/logrus"

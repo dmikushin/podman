@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	. "github.com/dmikushin/podman-shared/test/utils"
+	. "github.com/dmikushin/podman-shared/v5/test/utils"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"go.podman.io/storage/pkg/stringid"

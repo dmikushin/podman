@@ -13,7 +13,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/util"
+	"github.com/dmikushin/podman-shared/v5/pkg/util"
 	"github.com/nxadm/tail"
 	"github.com/sirupsen/logrus"
 	"go.podman.io/storage/pkg/lockfile"

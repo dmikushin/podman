@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/dmikushin/podman-shared/pkg/machine/define"
+	"github.com/dmikushin/podman-shared/v5/pkg/machine/define"
 	"github.com/containers/winquit/pkg/winquit"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/windows"
